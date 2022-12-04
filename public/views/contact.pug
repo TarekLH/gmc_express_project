@@ -1,0 +1,68 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta( name="viewport" content="width=device-width, initial-scale=1.0")
+        title Hello Pug
+        //Bootstrap 5.2.3
+        link(
+            href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' 
+            rel='stylesheet' 
+            integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65' 
+            crossorigin='anonymous'
+        )
+        script(src='/docs/5.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4' crossorigin='anonymous')
+
+    body
+        div.container
+            include ./navbar.pug
+
+            div.py-5.text-center
+                img.d-block.mx-auto.mb-4(src="../assets/bootstrap-logo.svg" alt='img' width='72' height='57')
+                h2 Contact Us
+                p.lead
+                    |Below is an example form built entirely with Bootstrap&rsquo;s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.
+
+            div.col-md-12.col-xl-12.col-xxl-12.px-4.py-5
+                form.needs-validation.col-md-6.m-auto.p-4.p-md-5.border.border-primary.rounded-3.bg-white
+                    div.row.g-3
+                        div.col-sm-6
+                            label.form-label(for='firstName') First name
+                            input.form-control.border-primary#firstName(type='text' placeholder='First name')
+
+                        div.col-sm-6
+                            label.form-label(for='lastName') Last name
+                            input.form-control.border-primary#lastName(type='text' placeholder='Last name')
+
+                        div.col-12
+                            label.form-label(for='username')
+                                | Username 
+                                span.text-muted (Required)
+                            div.input-group
+                                span.input-group-text.border-primary @
+                                input.form-control.border-primary#username(type='text' placeholder='Username' required)
+
+                        div.col-12
+                        label.form-label(for='email')
+                            | Email 
+                            span.text-muted (Required)
+                            input.form-control.border-primary#email(type='email' placeholder='you@example.com' required)
+
+                        div.col-12
+                            label.form-label(for='address') Address
+                            input.form-control.border-primary#address(type='text' placeholder='1234 Main St')
+                        div.col-md-5
+                            label.form-label(for='country') Country
+                                select.form-select.border-primary#country
+                                    option(value='') Choose...
+                                    option United States
+                                    option Algeria
+                                    option France
+                    hr.my-4
+                    div.form-check
+                        input.form-check-input.border-primary#save-info(type='checkbox')
+                        label.form-check-label(for='save-info') I have read and accept the privacy policy
+                        hr.my-4
+                        button.w-100.btn.btn-primary.btn-lg(type='submit') Register
+
+            include ./footer.pug
